@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products — Mathesis</title>
+<style>html{color-scheme:light dark}body{max-width:68rem;margin:3rem auto;padding:0 2rem;font:18px/1.7 Georgia,"Noto Serif",serif}header,article{max-width:48rem}h1{font-size:2rem;line-height:1.3;font-weight:500}h2{font-size:1.3rem;margin-top:2rem}a{color:#357053}nav{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;margin:1.4rem 0}.meta{font:15px/1.6 system-ui,sans-serif}p{overflow-wrap:anywhere}footer{margin-top:3rem;font-size:.9rem}@media(max-width:600px){body{margin:1.5rem auto;padding:0 1.2rem}h1{font-size:1.6rem}}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false})"></script>
+</head><body><header><a href="https://papers.trureturing.org/">Mathesis papers</a><h1>OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products</h1><p>Haobo Ma, Wenlin Zhang</p></header><nav><a href="../">论文</a></nav><article><p>本文问：多项式积分所得的分子，为何等于一个由整数幂取整构成的乘积？Haobo Ma 与 Wenlin Zhang 证明，两者总给出同一符号，参数被四整除时才为正。他们还证明，更换指数或平移区间，往往不改变乘积。</p>
+<p>切比雪夫多项式有这样的性质：把某角的余弦代入第 m 次多项式，得到该角乘以 m 后的余弦。记它为 Tₘ，从零积到一。整数系数逐项积分后得到有理数，约分再取带符号的分子。Wolfdieter Lang 于2009年引入相关数列；Anthony Browne 在2016年5月29日的猜想针对每个正整数 n，考察 n+1 次的情形，把积分与整除联系起来。</p>
+<p>作者先算完整分数。零、一次分别得1、1/2；偶数 m≥2 时得 −1/(m²−1)；m 除以四余一时得 1/(m+1)，余三时得 −1/(m−1)。它们已约分，也直接给出完整的分母数列。证明把积分变量换成角的余弦，得到倍角余弦与换元引入的正弦之积，再用积化和差归结为端点余弦值。端点值的四步循环解释了符号，也证明了数列条目中此前的有理积分猜想。</p>
+<p>乘积的关键是整除指示器。向下取整，就是取不超过原数的最大整数。对整数 t，t/n 与 (t−1)/n 的向下取整之差，恰在 n 整除 t 时为一，否则为零。因此原乘积中，n 整除 kⁿ 时因子为负一，否则为正一，k 从一到 n。把 n 的不同质因子相乘记为 rad(n)，约定 rad(1)=1。负因子恰有 n/rad(n) 个，乘积就是负一的这个次数幂。这也恢复 Browne 更早的取整求和公式；n=1 单独核对。</p>
+<p>推广时把指数换成任意正整数 r。若某质数在 n 中出现 e 次，要使 n 整除 kʳ，它在 k 中至少出现 e/r 向上取整那么多次。各质数所需的幂相乘，得到 n 的约数 D。合格整数恰为 D 的倍数，任意连续 n 个整数中均有 n/D 个，跨过零也如此，故整数平移不影响结果。n&gt;1 时，计数等于 n/rad(n) 的充要条件是 r 不小于 n 的最大质因子指数，精化了 Bottomley 先前的充分界。</p>
+<p>计数变，符号却可不变。n=16 时，指数二要求四的倍数，有四个合格余数；指数四只要求偶数，有八个，乘积均为正。奇偶性只取决于因子二：r≥2 时，若 n 只含一个二，D 会除去它；若至少含两个，D 不会除尽。因此 n/D 恰在四整除 n 时为偶数，乘积仍等于积分分子。指数一总给负一，n=4 表明限制不可统一放宽。作者承认平方、立方、四次幂计数已有公式，并注明 Yanev 的相关猜想已由 S. Fried 于2025年证明。</p>
+<p>作者另纠正系数表规则中的二倍偏差和一个符号错误：七次多项式的相应积分系数应为 −56/3，而非 56/3，依据是逐项积分而非近似。须区别有理系数求和与各项约分后的分子、分母分别求和。对后两种数列，本文无新闭式，只描述了对已发表前缀的有限检查。</p>
+<p>本文提供自足的书面解释，连接积分与整除，并推广指数和区间，并非自称首次完整证明。作者注明，较早的固定版本 Lean 声明已对所有正 n 证明原来的两项等式，采用有限系数和及其约分分子；所述范围不含推广、系数纠错和零、一次积分。精确算术程序仅作有限检查，所供正文未列具体范围，不能替代全指标证明。除上述分别求和数列在此尚无新公式外，本文没有另提开放猜想。</p></article><footer><a href="https://mathesis-omega-research.apps.chrono-ai.fun/contribute">Contribute to the mathematics and its formalization</a></footer></body></html>

@@ -1,0 +1,40 @@
+{
+  "A164660": {
+    "source_url": "https://oeis.org/A164660/internal",
+    "revision": 19,
+    "offset": 0,
+    "numerators": [1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1],
+    "rational_examples": ["1", "1/2", "-1/3", "-1/2", "-1/15", "1/6", "-1/35", "-1/6", "-1/63", "1/10", "-1/99"]
+  },
+  "A164661": {
+    "source_url": "https://oeis.org/A164661/internal",
+    "revision": 9,
+    "offset": 0,
+    "values": [1, 2, 3, 2, 15, 6, 35, 6, 63, 10, 99]
+  },
+  "A164658_A164659": {
+    "source_urls": ["https://oeis.org/A164658/internal", "https://oeis.org/A164659/internal"],
+    "revisions": [21, 10],
+    "rational_rows": [["1"], ["0", "1/2"], ["-1", "0", "2/3"], ["0", "-3/2", "0", "1"], ["1", "0", "-8/3", "0", "8/5"]]
+  },
+  "A164662": {
+    "source_url": "https://oeis.org/A164662/internal",
+    "revision": 8,
+    "offset": 0,
+    "values": [1, 1, 1, -2, 1, 8, -11, -41, -127, 107, -639]
+  },
+  "A164663": {
+    "source_url": "https://oeis.org/A164663/internal",
+    "revision": 8,
+    "offset": 0,
+    "values": [1, 3, 5, 5, 11, 9, 17, 11, 25, 15, 31]
+  },
+  "root_counts": {
+    "offset": 1,
+    "sources": [
+      {"exponent": 2, "source_url": "https://oeis.org/A000188/internal", "revision": 183, "values": [1, 1, 1, 2, 1, 1, 1, 2, 3, 1, 1, 2, 1, 1, 1, 4]},
+      {"exponent": 3, "source_url": "https://oeis.org/A000189/internal", "revision": 64, "values": [1, 1, 1, 2, 1, 1, 1, 4, 3, 1, 1, 2, 1, 1, 1, 4]},
+      {"exponent": 4, "source_url": "https://oeis.org/A000190/internal", "revision": 41, "values": [1, 1, 1, 2, 1, 1, 1, 4, 3, 1, 1, 2, 1, 1, 1, 8]}
+    ]
+  }
+}

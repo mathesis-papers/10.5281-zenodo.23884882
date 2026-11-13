@@ -1,0 +1,343 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,allcolors=blue,breaklinks=true]{hyperref}
+\usepackage{url}
+\hypersetup{pdftitle={OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products},pdfauthor={Haobo Ma; Wenlin Zhang},pdfsubject={Chebyshev integrals, root counts, and floor products; CC BY 4.0}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\num}{\operatorname{num}}
+\newcommand{\den}{\operatorname{den}}
+\newcommand{\floor}[1]{\left\lfloor #1\right\rfloor}
+\title{OEIS A164660, final FORMULA (29 May 2016):\\
+Chebyshev numerators and floor products}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\
+\small ChronoAI Pte Ltd, Singapore}
+\date{2 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove Anthony Browne's conjecture in OEIS A164660, final FORMULA
+(29 May 2016): for every positive integer $n$, the reduced numerator of
+$\int_0^1T_{n+1}(x)\,dx$ equals the stated floor product and
+$(-1)^{n/\rad(n)}$.
+Both sides are $+1$ exactly when $4\mid n$.
+The same calculation proves the preceding rational-integral conjecture
+and gives its denominator sequence A164661.
+More generally, replacing the exponent $n$ in the product by any integer
+$r\ge2$, and translating its interval by any integer, leaves the product
+unchanged. We give the exact root count for every $r\ge1$ and correct two
+coefficient-table discrepancies in the linked sources.
+\end{abstract}
+
+\section{The posed identity}
+Let $T_m$ be the Chebyshev polynomial with $T_0(x)=1$, $T_1(x)=x$ and
+$T_{m+1}(x)=2xT_m(x)-T_{m-1}(x)$.
+Write
+\begin{equation}\label{eq:def}
+ I_m=\int_0^1T_m(x)\,dx
+ =\sum_{j=1}^{m+1}\frac{[x^{j-1}]T_m(x)}{j},\qquad
+ a(m)=\num(I_m),\quad d(m)=\den(I_m),
+\end{equation}
+where fractions are reduced and denominators positive.
+The sequences $a$ and $d$ are A164660 and A164661
+\cite{oeis660,oeis661}; the summands are the rational triangle
+A164658/A164659 \cite{oeis658,oeis659}.
+We prove Browne's entire final FORMULA, including its two equalities and
+$n=1$, rather than just its integral ingredient.
+The sequence was introduced by Wolfdieter Lang in 2009; Browne's assertion
+is dated 29 May 2016.
+
+For $n\ge1$, let $\rad(n)=\prod_{p\mid n}p$, with $\rad(1)=1$.
+The quotient $n/\rad(n)$ is A003557 \cite{oeis3557,oeis7947}.
+Its interpretation as the number of nilpotent residues modulo $n$ is
+classical; see Finch, Section 2 \cite{finch}.
+Browne already recorded the corresponding floor \emph{sum} in A003557
+on 11 May 2016. The proof below combines this arithmetic count with the
+Chebyshev integral, and also supplies a general-exponent version.
+An earlier complete proof of the posed identity is the pinned Lean
+declaration described in Section~\ref{sec:scope} \cite{lean}.
+The present note gives a self-contained exposition and the additional
+consequences below.
+
+\begin{theorem}\label{thm:main}
+For every integer $n\ge1$,
+\begin{equation}\label{eq:target}
+ a(n+1)=\prod_{k=1}^{n}
+ \left(1-2\left(\floor{\frac{k^n}{n}}
+                  -\floor{\frac{k^n-1}{n}}\right)\right)
+ =(-1)^{n/\rad(n)}
+ =\begin{cases}1,&4\mid n,\\-1,&4\nmid n.\end{cases}
+\end{equation}
+All division inside a floor is rational division; in particular the
+subtraction by $1$ precedes the second division.
+\end{theorem}
+
+\section{The rational row sums and their denominators}
+\begin{proposition}\label{prop:integral}
+We have $I_0=1$, $I_1=1/2$, and, for $m\ge2$,
+\begin{equation}\label{eq:integral}
+ I_m=\begin{cases}
+ -1/(m^2-1),&m\ \text{even},\\
+ 1/(m+1),&m\equiv1\pmod4,\\
+ -1/(m-1),&m\equiv3\pmod4.
+ \end{cases}
+\end{equation}
+Consequently $a(0)=1$ and, for $m\ge1$, $a(m)=1$ exactly when
+$m\equiv1\pmod4$, and $a(m)=-1$ otherwise. Also
+\begin{equation}\label{eq:denominator}
+ d(0)=1,\qquad
+ d(m)=\begin{cases}
+ m^2-1,&m\ge2\ \text{even},\\
+ m+1,&m\equiv1\pmod4,\\
+ m-1,&m\equiv3\pmod4.
+ \end{cases}
+\end{equation}
+The odd branches include $m=1$ in the second case.
+\end{proposition}
+\begin{proof}
+The recurrence and the cosine addition formula give
+$T_m(\cos\theta)=\cos(m\theta)$, the normalization in DLMF
+18.5.1 \cite{dlmf}.
+Substituting $x=\cos\theta$ and using the product-to-sum identity gives,
+for $m\ge2$,
+\begin{align*}
+ I_m&=\int_0^{\pi/2}\cos(m\theta)\sin\theta\,d\theta\\
+ &=\frac12\left(
+ \frac{1-\cos((m+1)\pi/2)}{m+1}
+ -\frac{1-\cos((m-1)\pi/2)}{m-1}\right).
+\end{align*}
+For even $m$, both cosines vanish, giving $-1/(m^2-1)$.
+For $m\equiv1\pmod4$ the cosines are $-1,1$; for
+$m\equiv3\pmod4$ they are $1,-1$. These give the other branches.
+The polynomials $T_0=1$ and $T_1=x$ give the two initial values directly.
+Each displayed denominator is positive, and its numerator is $1$ or $-1$,
+so all fractions are already reduced. This proves the numerator and
+denominator assertions.
+\end{proof}
+
+For odd $m=4q+1$ or $4q+3$, respectively, the last two branches combine as
+\begin{equation}\label{eq:lang}
+ I_m=\frac{(-1)^{(m-1)/2}}
+ {2\bigl(2\floor{(m-1)/4}+1\bigr)}.
+\end{equation}
+Together with the even branch and $I_0=1$, this proves the separate
+rational-integral conjecture preceding Browne's formula in A164660.
+Equation~\eqref{eq:denominator} gives A164661 in full.
+
+\section{Root counts and arbitrary exponents}
+The following count also determines exactly when the exponent may be
+changed without changing the count, and when it may be changed without
+changing its parity.
+
+\begin{proposition}\label{prop:general}
+Let $n,r\ge1$ be integers, write $n=\prod_{p\mid n}p^{e_p}$, and set
+\[
+ D_r(n)=\prod_{p\mid n}p^{\lceil e_p/r\rceil},\qquad
+ C_r(n)=\frac{n}{D_r(n)}.
+\]
+For every integer $s$,
+\begin{align}
+ \sum_{k=s+1}^{s+n}\left(
+ \floor{\frac{k^r}{n}}-\floor{\frac{k^r-1}{n}}\right)&=C_r(n),
+ \label{eq:count}\\
+ \prod_{k=s+1}^{s+n}\left(1-2\left(
+ \floor{\frac{k^r}{n}}-\floor{\frac{k^r-1}{n}}\right)\right)
+ &=(-1)^{C_r(n)}.\label{eq:product-general}
+\end{align}
+For $n>1$, the equality $C_r(n)=n/\rad(n)$ holds exactly when
+$r\ge\max_{p\mid n}e_p$; for $n=1$ it holds for every $r\ge1$.
+For every $r\ge2$, the product in~\eqref{eq:product-general} equals
+$a(n+1)$, independently of $s$.
+\end{proposition}
+\begin{proof}
+For any integer $t$, Euclidean division $t=qn+u$, $0\le u<n$, gives
+\begin{equation}\label{eq:indicator}
+ \floor{t/n}-\floor{(t-1)/n}
+ =\begin{cases}1,&n\mid t,\\0,&n\nmid t.\end{cases}
+\end{equation}
+Indeed, at $u=0$ the floors are $q,q-1$, and otherwise both are $q$.
+This also proves the identity for negative $t$ and for zero.
+For nonzero $k$, the prime-power conditions give
+\[
+ n\mid k^r
+ \ \Longleftrightarrow\ 
+ r v_p(k)\ge e_p\ (p\mid n)
+ \ \Longleftrightarrow\ D_r(n)\mid k;
+\]
+the same equivalence holds at $k=0$.
+Because $D_r(n)\mid n$, every interval of $n$ consecutive integers
+contains exactly $n/D_r(n)$ multiples of $D_r(n)$.
+Equivalently its count is
+$\floor{(s+n)/D_r(n)}-\floor{s/D_r(n)}=n/D_r(n)$.
+Now~\eqref{eq:indicator} proves both the sum and the product.
+For $n>1$, $D_r(n)=\rad(n)$ exactly when every
+$\lceil e_p/r\rceil=1$, which is the stated sharp threshold.
+
+It remains to determine the sign. If $n$ is odd, $C_r(n)$ is odd.
+Otherwise let $t=v_2(n)\ge1$. Then
+\[
+ v_2(C_r(n))=t-\lceil t/r\rceil.
+\]
+For $r\ge2$, this is zero at $t=1$ and positive at every $t\ge2$,
+since $\lceil t/r\rceil\le\lceil t/2\rceil\le t-1$.
+Thus $C_r(n)$ is even exactly when $4\mid n$.
+Proposition~\ref{prop:integral} identifies this sign with $a(n+1)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+If $n\ge2$, take $r=n$ and $s=0$ in Proposition~\ref{prop:general}.
+For every prime-power divisor $p^{e_p}\mid n$,
+$e_p\le 2^{e_p}\le p^{e_p}\le n$, so $D_n(n)=\rad(n)$.
+The product is therefore $(-1)^{n/\rad(n)}$, with the stated sign and
+numerator. At $n=1$ the single factor is
+$1-2(\floor{1}-\floor{0})=-1$, while
+$a(2)=-1$ and $1/\rad(1)=1$.
+\end{proof}
+
+Taking $r=n$, $s=0$ in~\eqref{eq:count} recovers Browne's earlier
+floor sum in A003557 and its reciprocal radical formula in A007947.
+For $r=1$, $D_1(n)=n$, so the product is always $-1$; the uniform
+restriction $r\ge2$ in the numerator identity is sharp, as $n=4$ shows.
+The count itself need not be constant for $r\ge2$: at $n=16$ it is
+$C_2(16)=4$ and $C_4(16)=8$, while both products are $+1$.
+The familiar prime-power counts for $r=2,3,4$ are respectively A000188,
+A000189 and A000190 \cite{roots}; Proposition~\ref{prop:general}
+recovers those prior formulas.
+It also sharpens Bottomley's COMMENT in A003557 (18 September 2001):
+$n<2^{r+1}$ implies $e_p\le\log_2 n<r+1$, hence $e_p\le r$ and
+$C_r(n)=n/\rad(n)$. The exact threshold is the maximum prime exponent,
+not this sufficient bound.
+The square-indicator identity conjectured by Yanev in A000188
+(4 July 2021) already has Fried's proof (2025, Theorem 1) \cite{fried}:
+writing $n=u^2d$ with $d$ squarefree, $nk$ is a square exactly when
+$k=dv^2$, and $1\le k\le n$ is equivalent to $1\le v\le u$.
+There are $u=C_2(n)$ such integers. This is a prior result, not an
+additional open question.
+
+\section{Coefficient corrections and source coverage}
+Put $c_{m,j}=[x^j]T_m(x)$ and let $b_{m,j}$ be the coefficient of $x^j$
+in the zero-constant primitive. Coefficientwise integration gives
+\begin{equation}\label{eq:coeff}
+ b_{m,j}=c_{m,j-1}/j\qquad(1\le j\le m+1).
+\end{equation}
+This is the defining link between A053120 and A164658/A164659
+\cite{oeis53120,oeis658,oeis659}.
+The column multiplier printed as $j/2^{j-2}$ in the COMMENT of A164658
+must instead be $j/2^{j-1}$ to obtain $c_{m,j-1}/2^{j-1}$.
+At $(m,j)=(0,1)$ the printed multiplier gives $2$ rather than $1$;
+equation~\eqref{eq:coeff} proves the corrected identity for every column.
+Also, Lang's linked table under A164660 prints $56/3$ in rational row
+$n=7$, displayed column $m=5$, corresponding to $b_{7,6}$.
+The recurrence gives
+$T_7(x)=64x^7-112x^5+56x^3-7x$, so
+$b_{7,6}=-112/6=-56/3$.
+The table's numerator $-56$ and row sum $-1/6$ agree with this correction.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.30\textwidth}p{0.64\textwidth}@{}}
+\toprule
+Source item & Coverage \\
+\midrule
+A164660, final FORMULA, 29 May 2016 &
+Proved: Theorem~\ref{thm:main}, including both equalities and $n=1$.\\
+A164660, preceding rational conjecture &
+Proved: Proposition~\ref{prop:integral} and~\eqref{eq:lang}.\\
+A164661, denominator definition &
+Proved: the complete formula~\eqref{eq:denominator}.\\
+A003557, Browne floor sum, 11 May 2016 &
+Prior formula recovered by~\eqref{eq:count} with $r=n$, $s=0$.\\
+A007947, Browne radical formula, 17 June 2016 &
+Prior floor-sum equality recovered by taking its reciprocal.\\
+A003557, Bottomley COMMENT; A000188--A000190 &
+Prior root-count formulas recovered above; the sufficient bound is
+sharpened. A000188's Yanev identity has Fried's prior proof.\\
+A164658, column COMMENT; A164660 linked table, row 7 &
+Refuted and corrected by~\eqref{eq:coeff} and the displayed $T_7$.\\
+A164658/A164659, coefficient definitions; A053120 recurrence &
+Matched by~\eqref{eq:coeff} and the defining recurrence for $T_m$.\\
+A164662/A164663, separate numerator/denominator row sums
+\cite{oeis662,oeis663} &
+Not covered by a new closed formula; their defining finite sums are
+checked for the published prefixes by the accompanying program.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The last two sequences sum reduced coefficient numerators or denominators
+separately, not the rational coefficients, so they are distinct from $I_m$.
+
+\section{Formal and finite verification scope}\label{sec:scope}
+At upstream revision
+\texttt{122c987d276498783de7d873378a28b27ced8761}, the Lean declaration
+\begin{center}\small
+\href{https://github.com/the-omega-institute/trureturing/blob/122c987d276498783de7d873378a28b27ced8761/D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.lean}
+{\nolinkurl{D5.S3.ArithSums.BrowneA164660ChebyshevFloorProduct.result}}
+\end{center}
+proves the two source equalities of Theorem~\ref{thm:main} for every
+positive natural $n$.
+Its \texttt{rowSum} is exactly the finite coefficient sum
+in~\eqref{eq:def}; \texttt{a} is its reduced signed rational numerator;
+\texttt{floorProduct} uses the literal rational floors.
+The consumed lemma \texttt{row\_sum\_evaluation} gives the same
+rational integral branches for $m=n+1\ge2$.
+The arbitrary-exponent and translated-interval assertions of
+Proposition~\ref{prop:general}, the coefficient corrections, and the
+initial integrals $I_0,I_1$ have the written proofs given here.
+The accompanying \texttt{verify.py} uses exact integers and rational
+arithmetic. Its output states the finite ranges checked; those finite
+checks complement, rather than replace, the all-index proofs.
+
+\begin{thebibliography}{14}\small
+\bibitem{oeis660} W. Lang and A. Browne (formula contributor),
+OEIS A164660, revision 19 (2 October 2023), especially final FORMULA
+(29 May 2016), preceding FORMULA, and linked coefficient table.
+\url{https://oeis.org/A164660}.
+\bibitem{oeis658} W. Lang, OEIS A164658, revision 21 (8 April 2025),
+FORMULA, COMMENT, and linked table.
+\url{https://oeis.org/A164658}.
+\bibitem{oeis659} W. Lang, OEIS A164659, revision 10 (6 October 2016),
+FORMULA. \url{https://oeis.org/A164659}.
+\bibitem{oeis661} W. Lang, OEIS A164661, revision 9 (6 March 2021),
+FORMULA. \url{https://oeis.org/A164661}.
+\bibitem{oeis662} W. Lang, OEIS A164662, revision 8 (6 March 2021),
+FORMULA. \url{https://oeis.org/A164662}.
+\bibitem{oeis663} W. Lang, OEIS A164663, revision 8 (6 March 2021),
+FORMULA. \url{https://oeis.org/A164663}.
+\bibitem{oeis3557} OEIS A003557, revision 172 (1 October 2026),
+definition and A. Browne's floor-sum FORMULA (11 May 2016).
+\url{https://oeis.org/A003557}.
+\bibitem{oeis7947} OEIS A007947, revision 324 (21 October 2026),
+definition and A. Browne's floor-sum FORMULA (17 June 2016).
+\url{https://oeis.org/A007947}.
+\bibitem{oeis53120} W. Lang, OEIS A053120, revision 134
+(4 October 2026), coefficient recurrence.
+\url{https://oeis.org/A053120}.
+\bibitem{finch} S. Finch, \emph{Idempotents and Nilpotents Modulo n},
+arXiv:math/0605019v2 (18 November 2017), Section 2.
+\url{https://arxiv.org/abs/math/0605019v2}.
+\bibitem{dlmf} NIST Digital Library of Mathematical Functions,
+Section 18.5, equation 18.5.1, Chebyshev trigonometric representation.
+\url{https://dlmf.nist.gov/18.5.E1}.
+\bibitem{lean} Trureturing contributors,
+\emph{BrowneA164660ChebyshevFloorProduct.lean}, revision
+\texttt{122c987d276498783de7d873378a28b27ced8761}, declaration
+\texttt{result}; linked in Section~\ref{sec:scope}.
+\bibitem{roots} OEIS A000188, revision 183 (11 July 2026);
+A000189, revision 64 (11 July 2026); A000190, revision 41
+(11 July 2026), NAME and prime-power FORMULA.
+\url{https://oeis.org/A000188}, \url{https://oeis.org/A000189},
+\url{https://oeis.org/A000190}.
+\bibitem{fried} S. Fried, \emph{Proofs of some conjectures of Yanev},
+2025, Theorem 1; linked under A000188 (1 December 2025).
+\url{https://oeis.org/A000188/a000188.pdf}.
+\end{thebibliography}
+\medskip\noindent\small
+This note is licensed under
+\href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons
+Attribution 4.0 International (CC BY 4.0)}.
+\end{document}

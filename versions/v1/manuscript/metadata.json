@@ -1,0 +1,15 @@
+{
+  "id": "b164660-chebfloor",
+  "revision": 1,
+  "problem_ids": ["b164660-chebfloor"],
+  "topic": "Browne's OEIS A164660 floor-product conjecture and Chebyshev integral numerators",
+  "title": "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We prove Anthony Browne's conjecture in OEIS A164660, final FORMULA (29 May 2016): for every positive integer n, the reduced numerator of the integral from 0 to 1 of T_(n+1)(x) equals the stated floor product and (-1)^(n/rad(n)). Both sides are +1 exactly when 4 divides n. The same calculation proves the preceding rational-integral conjecture and gives its denominator sequence A164661. More generally, replacing the exponent n in the product by any integer r >= 2, and translating its interval by any integer, leaves the product unchanged. We give the exact root count for every r >= 1 and correct two coefficient-table discrepancies in the linked sources.",
+  "summary": "A self-contained proof of the complete A164660 floor-product identity, with the integral and denominator formulas, the sharp general-exponent root count, translated-interval sign invariance, precise Lean coverage, and coefficient-source corrections. Earlier root-count formulas and Fried's proof of the A000188 square-indicator identity are credited.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/122c987d276498783de7d873378a28b27ced8761/D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.lean"
+}
