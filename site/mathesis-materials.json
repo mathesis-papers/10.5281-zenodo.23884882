@@ -2,12 +2,12 @@
   "schema": "mathesis.materials.v1",
   "work": "b164660-chebfloor",
   "version": 1,
-  "repository_url": "https://github.com/mathesis-papers/6aec384eb72807af619767e9",
-  "site_url": "https://papers.trureturing.org/6aec384eb72807af619767e9/",
+  "repository_url": "https://github.com/mathesis-papers/10.5281-zenodo.23884882",
+  "site_url": "https://papers.trureturing.org/10.5281-zenodo.23884882/",
   "doi": "10.5281/zenodo.23884883",
   "reading": {
-    "en": "https://papers.trureturing.org/6aec384eb72807af619767e9/en/",
-    "zh": "https://papers.trureturing.org/6aec384eb72807af619767e9/zh/"
+    "en": "https://papers.trureturing.org/10.5281-zenodo.23884882/en/",
+    "zh": "https://papers.trureturing.org/10.5281-zenodo.23884882/zh/"
   },
   "slides": [],
   "visualizations": []
