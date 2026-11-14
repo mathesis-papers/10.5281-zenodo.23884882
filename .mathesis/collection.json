@@ -1,7 +1,7 @@
 {
   "git_blobs": {
     ".github/workflows/pages.yml": "7879724db1358178aad7e9bed326a44be44f5a6a",
-    ".mathesis/generated.json": "98e7dacf60e5b0106ed530efa91753779538158c",
+    ".mathesis/generated.json": "861f31aaa92f7316b8ddd90ef1ff2129ee5de844",
     "CHANGELOG.md": "7a89ab9b226394c60f01759197d4864793795633",
     "CITATION.cff": "19908cb8d27f7bed2dc19da832419637281fb3df",
     "CONTRIBUTING.md": "ea69168fc2cb506b57b00de1ef588aaf011aa3da",
@@ -14,12 +14,13 @@
     "manuscript/note.tex": "ce8ddb240e482d4ea8c36e4093177ca008f4021f",
     "manuscript/source-fixtures.json": "c71dcc7bb3a53c3b0eabc7785569e217b716060f",
     "manuscript/verify.py": "f9f57241c507133234b19186c384404b64d942b1",
-    "paper.json": "173e25524c65af64746b6a77c827ce21d0b58bc4",
+    "paper.json": "633e7ca10243f5e38818d1e2c17cbb314af6d995",
     "paper.pdf": "c3f1e5f9a777773372fa600dd8a29fb321246346",
     "site/en/index.html": "6a95021ecc33d54dcf3677b986348c412e80a0fa",
-    "site/index.html": "f1dba43a3e90bbf743159ff66bf672d6ff1fd887",
+    "site/index.html": "73a8998fc23f6ecf987833ff64ec48980a468026",
     "site/mathesis-materials.json": "4c71e3fb3f2ffc9a38dc01310369b777ebcd3d84",
     "site/zh/index.html": "80e8f342bc7f6eff16926c05d28e95bc788ce62a",
+    "source.archive": "23f67e1491b40c300d356933e9b4c5d3b3df4860",
     "versions/v1/.mathesis/generated.json": "19b2bf29303ca1f3b619cdf876d0204da4b89c3d",
     "versions/v1/CHANGELOG.md": "7a89ab9b226394c60f01759197d4864793795633",
     "versions/v1/CITATION.cff": "19908cb8d27f7bed2dc19da832419637281fb3df",
@@ -34,12 +35,13 @@
     "versions/v1/manuscript/source-fixtures.json": "c71dcc7bb3a53c3b0eabc7785569e217b716060f",
     "versions/v1/manuscript/verify.py": "f9f57241c507133234b19186c384404b64d942b1",
     "versions/v1/paper.json": "9ae193f2f9769ccaac6f7162dc6bedeed7adcfba",
-    "versions/v1/paper.pdf": "c3f1e5f9a777773372fa600dd8a29fb321246346"
+    "versions/v1/paper.pdf": "c3f1e5f9a777773372fa600dd8a29fb321246346",
+    "versions/v1/source.archive": "23f67e1491b40c300d356933e9b4c5d3b3df4860"
   },
   "schema": "mathesis.paper-collection.v1",
   "sha256": {
     ".github/workflows/pages.yml": "f15d983dcb8f324ffdedb50b05f7380e11fda8723d49b5c8f10ef0f414612372",
-    ".mathesis/generated.json": "e6fc143a3c57770814764f437336697c96362353107851d1fe7f9c0f45a940cf",
+    ".mathesis/generated.json": "4052bf0a87c16db92ab086849f762359f0bf5c99790ef9bef1d75281c219f9be",
     "CHANGELOG.md": "c867421a56d53f7cfd256f24c10f837363070c6dcc29a65036115cccf714d74f",
     "CITATION.cff": "69eee2c099faf85105aa76493bb6256b1e0c614be88f8ccba71130f8a66fed91",
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
@@ -52,12 +54,13 @@
     "manuscript/note.tex": "28c5b14de610f483faf71e3e9a843abded3689f347b7c22e577cf68bbb135455",
     "manuscript/source-fixtures.json": "fa8400d7d9b558a096bee098d9431fc72a74f0f686a02e9a8b105c9fcc8363df",
     "manuscript/verify.py": "a96b40287caa5cb13148c6a3cb4eb8565ddfeb207483abc2bb66510000e0ece1",
-    "paper.json": "4f1ef3c1728492457d16456a22a6173ebb73f21f274ba981b4d81abbb07664dc",
+    "paper.json": "f4ff0212927316f27d717547fed7be89197dd7eb93ff9eb6df309956e1c116f6",
     "paper.pdf": "cb6925ab5fbb293057703a6f10abb8171b5fcfcfea3c13baa75fc6ff15ab454f",
     "site/en/index.html": "f548a4993532da85047a4f36aded6f232101ff5355d9fbb450eed57068b3f68b",
-    "site/index.html": "be45b5b5bed24c1802e4ac3317e81cb3ddd49dcb12589185f23064c45568cd43",
+    "site/index.html": "0d30c8c098e15d6ca40e5a80a3807bb1204da334a242b13fc07777cea59b7bee",
     "site/mathesis-materials.json": "a6f070c537b46ab3072c6120819d850220a57ccb65f1e1fa74b84fd57c508ba4",
     "site/zh/index.html": "a4849fb32bf8700fb1bb3d840967112cc502527affd810eceda5cee3a665de51",
+    "source.archive": "b330f3067e11838d06d009d798130be5e471e606927578ba408ea77e0c20070d",
     "versions/v1/.mathesis/generated.json": "b0c2895d74c9649ce28575bd4cc69b02a9a98ce35c0102ed1aa5a03f4942fe65",
     "versions/v1/CHANGELOG.md": "c867421a56d53f7cfd256f24c10f837363070c6dcc29a65036115cccf714d74f",
     "versions/v1/CITATION.cff": "69eee2c099faf85105aa76493bb6256b1e0c614be88f8ccba71130f8a66fed91",
@@ -72,7 +75,8 @@
     "versions/v1/manuscript/source-fixtures.json": "fa8400d7d9b558a096bee098d9431fc72a74f0f686a02e9a8b105c9fcc8363df",
     "versions/v1/manuscript/verify.py": "a96b40287caa5cb13148c6a3cb4eb8565ddfeb207483abc2bb66510000e0ece1",
     "versions/v1/paper.json": "eba8fb7a77ade2d2772d7b29f3dd3094b11ba9dd202656f1bd92920fb17826b5",
-    "versions/v1/paper.pdf": "cb6925ab5fbb293057703a6f10abb8171b5fcfcfea3c13baa75fc6ff15ab454f"
+    "versions/v1/paper.pdf": "cb6925ab5fbb293057703a6f10abb8171b5fcfcfea3c13baa75fc6ff15ab454f",
+    "versions/v1/source.archive": "b330f3067e11838d06d009d798130be5e471e606927578ba408ea77e0c20070d"
   },
   "version": 1,
   "work": "b164660-chebfloor"
