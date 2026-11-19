@@ -1,0 +1,133 @@
+{
+  "voice": "af_heart",
+  "speed": 0.94,
+  "say": {
+    "Chebyshev": "Cheby shev"
+  },
+  "music": {
+    "bpm": 80,
+    "progression": "a-minor"
+  },
+  "scenes": [
+    {
+      "id": "question",
+      "name": "ONE SIGN / 同一个符号",
+      "lead": 0.8,
+      "tail": 0.8,
+      "lines": [
+        [
+          "Can an integral and a divisibility test always give the same sign?",
+          "一个积分与一个整除检测，能否总给出相同符号？"
+        ],
+        [
+          "Start with n equal to four. Integrating this degree-five polynomial gives one sixth, whose reduced numerator is plus one.",
+          "先取 n 等于四。这个五次多项式的积分为六分之一，最简分子为正一。"
+        ],
+        [
+          "Among one through four, exactly two fourth powers are divisible by four. Two sign flips also give plus one.",
+          "一到四中，恰好两个数的四次方能被四整除。翻转两次，仍是正一。"
+        ]
+      ]
+    },
+    {
+      "id": "detector",
+      "name": "THE SWITCH / 整除开关",
+      "lead": 0.8,
+      "tail": 0.8,
+      "lines": [
+        [
+          "The floor of a number rounds it down. Compare t divided by n with t minus one, divided by n.",
+          "向下取整得到不超过原数的最大整数。比较 t 除以 n，与 t 减一之后再除以 n。"
+        ],
+        [
+          "The floors differ by one exactly when n divides t. Otherwise they agree.",
+          "恰好在 n 整除 t 时，两个取整相差一；否则相同。"
+        ],
+        [
+          "So one minus twice their difference is a switch: minus one for success, plus one otherwise.",
+          "因此，一减去两倍取整差就是开关：成功为负一，否则为正一。"
+        ]
+      ]
+    },
+    {
+      "id": "count",
+      "name": "COUNT MULTIPLES / 数倍数",
+      "lead": 0.8,
+      "tail": 0.8,
+      "lines": [
+        [
+          "For the original exponent n, success means that k contains every prime dividing n.",
+          "对原来的指数 n，成功意味着 k 含有 n 的每个质因子。"
+        ],
+        [
+          "Their product is the radical. For twelve, the radical is six, and the successful integers are six and twelve.",
+          "这些不同质因子的乘积叫根基。十二的根基是六，成功者为六和十二。"
+        ],
+        [
+          "There are n divided by the radical successes. Only the parity of that count matters to the product.",
+          "成功者共有 n 除以根基个。乘积只关心这个数量的奇偶性。"
+        ]
+      ]
+    },
+    {
+      "id": "integral",
+      "name": "FOUR STEPS / 四步周期",
+      "lead": 0.8,
+      "tail": 0.8,
+      "lines": [
+        [
+          "Why does integration agree? These polynomials turn the cosine of an angle into the cosine of a multiple angle.",
+          "积分为何相同？这些多项式把一个角的余弦变成倍角的余弦。"
+        ],
+        [
+          "Substitution reduces the integral to endpoint cosines, cycling through one, zero, minus one, zero.",
+          "代入后，积分只需计算端点余弦，依次循环为一、零、负一、零。"
+        ],
+        [
+          "The resulting fractions have numerator plus or minus one. At degree n plus one, the numerator is positive exactly when four divides n.",
+          "所得分数的分子为正一或负一。在次数 n 加一时，分子为正恰好等价于四整除 n。"
+        ]
+      ]
+    },
+    {
+      "id": "powers",
+      "name": "COUNTS AND PARITY / 数量与奇偶",
+      "lead": 0.8,
+      "tail": 0.8,
+      "lines": [
+        [
+          "Changing the exponent can change the count without changing the sign.",
+          "改变指数会改变成功者数量，却未必改变符号。"
+        ],
+        [
+          "For sixteen, squares require multiples of four: four successes. Fourth powers require even integers: eight successes.",
+          "对十六，平方要求四的倍数，有四个成功者；四次方只要求偶数，有八个成功者。"
+        ],
+        [
+          "Both counts are even. Every exponent at least two gives the same sign. For n greater than one, the count reaches its radical value at the largest prime exponent.",
+          "两种计数都是偶数。任何至少为二的指数都给出相同符号。对大于一的 n，计数在指数达到最大的质数指数时达到根基公式的数值。"
+        ]
+      ]
+    },
+    {
+      "id": "close",
+      "name": "SHIFT AND CONNECT / 平移与相认",
+      "lead": 0.8,
+      "tail": 0.8,
+      "lines": [
+        [
+          "Shift to any sixteen consecutive integers. The multiples of four still occur four times, even across zero.",
+          "平移到任意十六个连续整数，四的倍数仍出现四次，即使跨过零。"
+        ],
+        [
+          "Browne proposed the original identity; an earlier Lean proof establishes both equalities shown here. Haobo Ma and Wenlin Zhang explain the mechanism and prove the extensions in writing.",
+          "Browne 提出原始恒等式；较早的 Lean 证明建立了这里显示的两个等式。Haobo Ma 与 Wenlin Zhang 解释其机制，并给出推广的书面证明。"
+        ],
+        [
+          "The boundary matters: exponent one always gives minus one. Count first, then ask whether the count is even.",
+          "边界条件很重要：指数为一时，乘积总是负一。先计数，再问它是否为偶数。"
+        ]
+      ]
+    }
+  ]
+}

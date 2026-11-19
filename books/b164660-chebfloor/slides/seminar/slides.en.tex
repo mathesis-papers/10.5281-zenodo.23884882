@@ -1,0 +1,212 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{Integration and divisibility: the same sign}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1} ChronoAI Pte Ltd, Singapore\and\inst{2} National University of Singapore, Singapore}
+\date{Version 1}
+\begin{document}
+% Manuscript: Section 1; title and attribution
+\begin{frame}
+\titlepage
+\note{Begin with a hand-computable question. The paper authors are Haobo Ma and Wenlin Zhang; Lang introduced the sequences and Browne proposed the formula. This talk explains version 1 and its mechanism.}
+\end{frame}
+% Manuscript: Sections 1–3
+\begin{frame}{Route}
+\tableofcontents
+\note{Build the two constructions, turn the floor product into a count, and compare parity. The reading edition retains the complete proofs.}
+\end{frame}
+\section{Question}
+% Manuscript: Section 1, Theorem 1
+\begin{frame}{The same answer}
+For every positive integer $n$:
+\begin{itemize}
+\item Integrate $T_{n+1}$ and keep its reduced signed numerator.
+\item Flip a sign for each $k\in\{1,\ldots,n\}$ with $n\mid k^n$.
+\end{itemize}
+\begin{block}{Answer}
+Both are $+1$ when $4\mid n$, and $-1$ otherwise.
+\end{block}
+\note{This is the plain-language conclusion. Denominators are positive and numerators retain their signs. We will state the two exact equalities shortly.}
+\end{frame}
+% Manuscript: Section 1, defining recurrence; Proposition 2
+\begin{frame}{Calculate $n=4$}
+\[
+T_0=1,\quad T_1=x,\qquad T_{m+1}=2xT_m-T_{m-1}\ (m\ge1).
+\]
+\[
+T_5=16x^5-20x^3+5x,\qquad I_5=\frac16.
+\]
+\begin{itemize}
+\item The numerator is $+1$.
+\item The successes for $4\mid k^4$ are $2,4$.
+\item Two negative factors: $(-1)^2=+1$.
+\end{itemize}
+\note{The integral is $16/6-20/4+5/2=1/6$. Emphasize the degree $n+1$. One example is not a proof; next explain the general mechanism.}
+\end{frame}
+\section{Counting}
+% Manuscript: Proposition 3, proof, indicator identity
+\begin{frame}{Floors detect divisibility}
+For integer $t$ and positive integer $n$, set
+\[
+\delta_n(t)=\left\lfloor\frac tn\right\rfloor-\left\lfloor\frac{t-1}{n}\right\rfloor.
+\]
+\[
+\delta_n(t)=\begin{cases}1,&n\mid t,\\0,&n\nmid t.\end{cases}
+\]
+Write $t=qn+u$, $0\le u<n$:
+\begin{itemize}
+\item At $u=0$, the floors are $q,q-1$.
+\item At $u>0$, both floors are $q$.
+\end{itemize}
+\note{All divisions inside floors are rational. Subtract $1$ before the second division. Euclidean division also applies to negative $t$; at zero the floors are $0,-1$.}
+\end{frame}
+% Manuscript: Section 3; proof of Theorem 1
+\begin{frame}{From radicals to a count}
+The radical is the product of distinct prime factors; $\operatorname{rad}(1)=1$.
+\[
+n\mid k^n\quad\Longleftrightarrow\quad\operatorname{rad}(n)\mid k.
+\]
+\[
+P_n(n;0)=(-1)^{n/\operatorname{rad}(n)}.
+\]
+\[
+P_r(n;s)=\prod_{k=s+1}^{s+n}(1-2\delta_n(k^r)).
+\]
+For $12=2^2\cdot3$, the radical is $6$ and the successes are $6,12$.
+\note{If $p^e\mid n$, then $e\le n$, so one copy of $p$ in $k$ supplies enough copies in $k^n$. A missing prime cannot be created. Negative factors correspond exactly to multiples of the radical.}
+\end{frame}
+% Manuscript: Theorem 1, public two-equality assertion
+\begin{frame}{Browne's identity}
+Let $a(m)$ be the reduced signed numerator of $I_m=\int_0^1T_m(x)\,dx$.
+\begin{bookresult}{thm-browne}
+For every positive integer $n$,
+\[
+\begin{aligned}
+a(n+1)&=P_n(n;0),\\
+P_n(n;0)&=(-1)^{n/\operatorname{rad}(n)}.
+\end{aligned}
+\]
+\end{bookresult}
+\note{The two equalities in this box match the public formal statement. Lean represents the integral by its rational coefficient sum, agreeing by termwise integration. At $n=1$ the product is $-1$ and $I_2=-1/3$.}
+\end{frame}
+\section{Integration}
+% Manuscript: Proposition 2 and proof
+\begin{frame}{Why integration gives a four-step pattern}
+\[
+T_m(\cos\theta)=\cos(m\theta),\qquad
+I_m=\int_0^{\pi/2}\cos(m\theta)\sin\theta\,d\theta.
+\]
+For $m\ge2$, product-to-sum gives
+\[
+\begin{aligned}
+I_m={}&\frac{1-\cos((m+1)\pi/2)}{2(m+1)}\\
+&-\frac{1-\cos((m-1)\pi/2)}{2(m-1)}.
+\end{aligned}
+\]
+Endpoint cosines cycle through $1,0,-1,0$.
+\note{The substitution $x=\cos\theta$ reverses the endpoints, cancelling the minus sign in $dx$. Do not substitute $m=1$ into this intermediate formula: $m-1=0$. Integrate it directly.}
+\end{frame}
+% Manuscript: Proposition 2
+\begin{frame}{The complete rational formulas}
+\small
+\begin{bookresult}{prop-integrals}
+$I_0=1$, $I_1=1/2$; for $m\ge2$,
+\[
+I_m=\begin{cases}-1/(m^2-1),&m\text{ even},\\1/(m+1),&m\equiv1\pmod4,\\-1/(m-1),&m\equiv3\pmod4.\end{cases}
+\]
+$a(0)=1$; for $m\ge1$, $a(m)=1$ iff $m\equiv1\pmod4$, and is $-1$ otherwise.
+$d(0)=1$; the positive denominators are respectively $m^2-1,m+1,m-1$, with $m=1$ included in the odd branch.
+\end{bookresult}
+\note{Numerators are $\pm1$ and denominators are positive, so the fractions are reduced. Thus $a(n+1)=1$ iff $4\mid n$. Reuse the existing positive-index row-sum proof for the remaining complete initial-value and denominator interface.}
+\end{frame}
+\section{Extensions}
+% Manuscript: Proposition 3 and discussion n=16
+\begin{frame}{Different counts, the same parity}
+\[
+n=16=2^4,\qquad D_r(16)=2^{\lceil4/r\rceil}.
+\]
+\begin{center}
+\begin{tabular}{c|c|c|c}
+$r$&$D_r(16)$&$C_r(16)$&$P_r(16;0)$\\\hline
+$2$&$4$&$4$&$+1$\\
+$4$&$2$&$8$&$+1$
+\end{tabular}
+\end{center}
+$C_r$ counts successes; $P_r$ records only their parity.
+\note{For squares, the successes are $4,8,12,16$; for fourth powers, all even integers succeed. Equal products do not imply equal counts.}
+\end{frame}
+% Manuscript: Proposition 3, complete statement
+\begin{frame}{Arbitrary exponents and integer shifts}
+\small
+\begin{bookresult}{prop-roots}
+For $n,r\ge1$, write $n=\prod_{p\mid n}p^{e_p}$ and set
+\[
+D_r(n)=\prod_{p\mid n}p^{\lceil e_p/r\rceil},\qquad C_r(n)=n/D_r(n).
+\]
+Empty products are $1$. For every integer $s$,
+\[
+\begin{aligned}
+\sum_{k=s+1}^{s+n}\delta_n(k^r)&=C_r(n),\\
+P_r(n;s)&=(-1)^{C_r(n)}.
+\end{aligned}
+\]
+For $n>1$, $C_r(n)=n/\operatorname{rad}(n)$ iff $r\ge\max_{p\mid n}e_p$; for $n=1$ this holds for all $r\ge1$. For every $r\ge2$, $P_r(n;s)=a(n+1)$.
+\end{bookresult}
+\note{The two formulas give the count and product separately. The largest prime exponent controls saturation of the count, whereas $r\ge2$ already fixes the sign. Negative integers and zero belong to the statement.}
+\end{frame}
+% Manuscript: Proposition 3, proof
+\begin{frame}{Two decisive proof steps}
+\[
+n\mid k^r\ \Longleftrightarrow\ D_r(n)\mid k.
+\]
+Since $D_r(n)\mid n$, every block of $n$ integers has $n/D_r(n)$ multiples.
+\[
+v_2(C_r(n))=t-\lceil t/r\rceil\quad(t=v_2(n)\ge1).
+\]
+For $r\ge2$: $t=1$ gives zero; $t\ge2$ gives a positive value.
+\begin{alertblock}{Boundary}
+At $r=1$ the product is always $-1$; $n=4$ shows why the restriction matters.
+\end{alertblock}
+\note{For nonzero $k$, each prime exponent satisfies $r v_p(k)\ge e_p$; check zero directly. For odd $n$ the count is odd. For $t\ge2$, use $\lceil t/r\rceil\le\lceil t/2\rceil\le t-1$.}
+\end{frame}
+\section{Sources}
+% Manuscript: Section 4, coefficient corrections
+\begin{frame}{Two coefficient corrections}
+For coefficients of the zero-constant primitive,
+\[
+b_{m,j}=c_{m,j-1}/j\qquad(1\le j\le m+1).
+\]
+\begin{itemize}
+\item The A164658 column multiplier should be $j/2^{j-1}$.
+\item $T_7=64x^7-112x^5+56x^3-7x$, so $b_{7,6}=-56/3$, not $56/3$.
+\end{itemize}
+No new closed formulas are given for the separate sums A164662 and A164663.
+\note{The original table displays column $m=5$ for what is denoted here by $b_{7,6}$. The printed column multiplier $j/2^{j-2}$ is twice the required value. Separate numerator sums differ from taking the numerator after summing rational numbers.}
+\end{frame}
+% Manuscript: Sections 1, 3 and bibliography
+\begin{frame}{Sources and contributions}
+\small
+\begin{itemize}
+\item W. Lang introduced the sequences in 2009; A. Browne proposed the formula in 2016.
+\item An earlier complete Lean proof establishes the original identity.
+\item This paper: self-contained explanation, exponent and interval extensions, coefficient corrections.
+\item S. Finch, \emph{Idempotents and Nilpotents Modulo n}, \href{https://arxiv.org/abs/math/0605019v2}{Section 2}; NIST DLMF \href{https://dlmf.nist.gov/18.5.E1}{18.5.1}.
+\item A000188--A000190 give prior root counts; S. Fried (2025), Theorem 1, proves the related Yanev identity.
+\end{itemize}
+\href{https://doi.org/10.5281/zenodo.23884883}{Haobo Ma and Wenlin Zhang, version 1, CC BY 4.0}.
+\note{Distinguish the original question, earlier formal proof and this paper\textquotesingle s written extensions. Retain cited authors\textquotesingle{} recorded initials.}
+\end{frame}
+% Manuscript: Section 5, formal scope; Propositions 2–3
+\begin{frame}{Reusable next steps}
+\begin{itemize}
+\item Original two equalities: an existing public Lean statement.
+\item \href{https://github.com/the-omega-institute/trureturing-requests/issues/234}{Complete initial values and denominators}: reuse the row-sum evaluation.
+\item \href{https://github.com/the-omega-institute/trureturing-requests/issues/235}{Arbitrary powers and shifted counts}: extend the divisibility construction.
+\end{itemize}
+The shared mechanism: divisibility switch $\longrightarrow$ count $\longrightarrow$ parity.
+\note{Both tasks have written proofs. The counting extension is independent of integral evaluation; only the final numerator identification uses its sign. Finite computation does not replace all-index proof.}
+\end{frame}
+\appendix
+% Manuscript: Section 5, formal and written evidence
+\FormalVerification
+\end{document}

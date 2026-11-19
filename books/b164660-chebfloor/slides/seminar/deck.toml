@@ -1,0 +1,12 @@
+kind = "academic"
+editions = ["zh", "en"]
+aspect = "4:3"
+structure_colour = "#0e2c8e"
+short_author = "H. Ma, W. Zhang"
+short_title = "Chebyshev numerators"
+date = "Version 1 · 2026"
+navigation_symbols = false
+
+[title]
+zh = "积分与整除：同一个符号"
+en = "Integration and divisibility: the same sign"

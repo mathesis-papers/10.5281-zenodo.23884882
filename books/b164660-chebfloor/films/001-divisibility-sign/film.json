@@ -1,0 +1,29 @@
+{
+  "duration": "2:26",
+  "id": "001-divisibility-sign",
+  "lean": [
+    "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result"
+  ],
+  "narration": {
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "language": "en",
+    "voice": "af_heart"
+  },
+  "outputs": {
+    "cover": "b164660-chebfloor_001_cover.jpg",
+    "narrated_720p": "b164660-chebfloor_001_720p_narrated.mp4"
+  },
+  "publication_basis": "pinned",
+  "released": "2026-11-16",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "subject": "https://github.com/the-omega-institute/trureturing",
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "summary": "A floor difference becomes a divisibility switch. Count its negative factors to connect Chebyshev numerators with parity.",
+  "summary_zh": "把取整差变成整除开关，数负因子，理解 Chebyshev 积分分子与奇偶性的联系。",
+  "title": "Two floors, one sign flip",
+  "title_zh": "两个取整，一次符号翻转"
+}

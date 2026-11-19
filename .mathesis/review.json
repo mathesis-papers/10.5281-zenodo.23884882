@@ -1,0 +1,22 @@
+{
+  "results": {
+    "thm-browne": {
+      "comparison_verdict": "same",
+      "compared_public_gid": "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "scope": "Original Theorem 1 is presented as the exact public two-equality statement plus its explicitly proved sign consequence in adjacent prose. The bookresult contains exactly: for n in N, n>0, a(n+1)=floorProduct(n) and floorProduct(n)=(-1)^(n/rad(n)); n=1 included, no n=0 claim. Unfolded rowSum is the sum over j=1..m+1 of coeff(T_Q(m),j-1)/j, a is Rat.num with positive reduced denominator, and floorProduct takes literal rational floors with subtraction before division. Coefficientwise polynomial integration identifies this rowSum with I_m. Positive integers and positive naturals coincide here. rad(1)=1. The printed final piecewise sign is not inserted into the Lean-backed environment: it follows by the complete adjacent parity proof and is also established by consumed private numerator_eq and quotient_even_iff. No duplicate formalization request. The paper's original pin 122c987d276498783de7d873378a28b27ced8761 has identical module bytes to the inspected current book pin. The frozen module state records result as theorem and its actual statement id."
+    },
+    "prop-integrals": {
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "scope": "Original Proposition 2, complete including I_0=1, I_1=1/2, all m>=2 rational branches, a(0)=1 and a(m) sign for m>=1, and all positive reduced denominators d(m), is retained. Public result states numerator/floor equalities, not the complete proposition. The same actual module has consumed private row_sum_evaluation for m=n+1>=2 and numerator_eq for its sign; the frozen state includes these mangled private theorem names. They must not be treated as stable public module.suffix GIDs or omitted as if no proof existed. Initial m=0,1 values and the denominator projection are not conclusions of the public result. Reuse the existing rational primitive/evaluation in request #234; remaining interface/boundary/projection work, not a duplicate all-index evaluation proof. The analytic integral is identified with the exact finite polynomial coefficient sum by termwise integration. The book proof handles m=1 separately and checks positive reduced denominators. Written proof DOI 10.5281/zenodo.23884883, Proposition 2."
+    },
+    "prop-roots": {
+      "comparison_verdict": "special case",
+      "compared_public_gid": "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "scope": "Original Proposition 3 quantifies n,r>=1 and all integer translations s, including k<=0; it gives D_r, C_r, both sum and product, the iff threshold r>=max e_p for n>1, n=1 for all r>=1, and product=a(n+1) for every r>=2. Public result covers only exponent r=n and s=0; its private floor_indicator and power_dvd_iff use natural k and this same exponent, and floor_product_eq counts the radical specialization. The public declaration is a special case of the product equality, not exact coverage of the proposition, count, translated integer domain or sharp threshold. Request #235 extends the existing divisibility/count construction; it does not repeat Theorem 1. Counting is independent of integral evaluation; only the final numerator identification uses the known sign. The n=16 example distinguishes count invariance from parity invariance, and r=1 is retained. Focused nontruncated Arith and ArithSums trees plus related FerreiraOddPowerResidueRadical were inspected; that residue-sum theorem is not a matching general root count. Written proof DOI 10.5281/zenodo.23884883, Proposition 3."
+    }
+  }
+}

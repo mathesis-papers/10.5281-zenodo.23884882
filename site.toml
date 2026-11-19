@@ -1,0 +1,14 @@
+[site]
+repo = "mathesis-papers/10.5281-zenodo.23884882"
+base_url = "https://papers.trureturing.org/10.5281-zenodo.23884882/"
+post_build = ["python3", "-c", "from pathlib import Path\nimport runpy\nscript = Path(\"docs/layer-mathesis/scripts/site.py\")\nif script.is_file():\n    runpy.run_path(str(script), run_name=\"__main__\")\nelse:\n    print(\"Mathesis post-build skipped: layer script is absent from repository being built\")\n"]
+languages = ["zh", "en"]
+[site.title]
+zh = "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products"
+en = "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products"
+[trureturing]
+repo = "the-omega-institute/trureturing"
+branch = "dev"
+[books]
+order = ["b164660-chebfloor"]
+hide = []

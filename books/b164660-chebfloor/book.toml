@@ -1,0 +1,17 @@
+[book]
+version = "1"
+authors = ["Haobo Ma", "Wenlin Zhang"]
+license = "CC-BY-4.0"
+editions = ["zh", "en"]
+date = "2026-11-05"
+[book.title]
+zh = "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products"
+en = "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products"
+[outputs]
+html = true
+pdf = ["academic"]
+epub = true
+[mathesis]
+work = "b164660-chebfloor"
+version = 1
+source_title = "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products"

@@ -1,0 +1,44 @@
+{
+  "book": "b164660-chebfloor",
+  "pending_claims": [],
+  "results": {
+    "thm-browne": {
+      "claim": "collected:b164660-chebfloor:1:s1",
+      "gids": [
+        "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result"
+      ],
+      "comparison_verdict": "same",
+      "compared_public_gid": "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8"
+    },
+    "prop-integrals": {
+      "claim": "collected:b164660-chebfloor:1:s2",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Proposition 2 — Complete Chebyshev integrals and denominators",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/234"
+      }
+    },
+    "prop-roots": {
+      "claim": "collected:b164660-chebfloor:1:s3",
+      "gids": [],
+      "comparison_verdict": "special case",
+      "compared_public_gid": "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Proposition 3 — Arbitrary-power counts and translated products",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/235"
+      }
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products",
+    "zh": "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products"
+  },
+  "version": 1,
+  "work": "b164660-chebfloor"
+}

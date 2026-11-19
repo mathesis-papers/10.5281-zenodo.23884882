@@ -1,0 +1,10 @@
+# Contribute to formalization
+
+The original numerator–floor-product identity already has a [public Lean proof](https://github.com/the-omega-institute/trureturing/blob/8a24ea4e79de962725aab9d9b49cc605fcc211d8/D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.lean). Contributors can reuse its structure for two tasks with different exact scopes:
+
+- [Initial values and reduced denominator projection](https://github.com/the-omega-institute/trureturing-requests/issues/234), corresponding to the [complete integral formulas](statements.md#prop-integrals). The existing proof uses the positive-index rational row-sum evaluation. Reuse it to provide the complete reusable statement, initial values, reduced-denominator projection, and any polynomial-integral bridge required by the chosen interface.
+- [Arbitrary exponents and translated root counts](https://github.com/the-omega-institute/trureturing-requests/issues/235), corresponding to the [root-count formulas](statements.md#prop-roots). Extend the divisibility detector to arbitrary positive exponents and integer intervals, retaining the exact threshold and endpoints. Counting itself is independent of the integral; only the final identification with its numerator uses the sign formula.
+
+Both have [written proofs in version 1](https://doi.org/10.5281/zenodo.23884883); they are not unresolved mathematical conjectures. The precise chapter also derives both coefficient-table corrections. Those corrections are outside the automatic coverage of the original product identity.
+
+Coordinate scope on the corresponding shared issue. Work in your own contributor branch or fork, follow [upstream contribution rules](https://github.com/the-omega-institute/trureturing/blob/dev/docs/CONTRIBUTING.md), and submit a focused PR directly to upstream `dev`. Retain separate attribution for the original problem, paper authors and formalization contributors. A Mathesis-fork merge is not a prerequisite; upstream acceptance and independent platform verification records have distinct roles.

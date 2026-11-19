@@ -1,0 +1,212 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{积分与整除：同一个符号}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1} ChronoAI Pte Ltd, Singapore\and\inst{2} National University of Singapore, Singapore}
+\date{Version 1}
+\begin{document}
+% Manuscript: Section 1; title and attribution
+\begin{frame}
+\titlepage
+\note{从一个可以手算的问题开始。原论文作者为 Haobo Ma 与 Wenlin Zhang；Lang 引入数列，Browne 提出公式。此报告解释版本 1 的结论与机制。}
+\end{frame}
+% Manuscript: Sections 1–3
+\begin{frame}{路线}
+\tableofcontents
+\note{先建立两个构造，再把取整乘积变成计数，最后比较奇偶性。完整证明在阅读版的精确章节。}
+\end{frame}
+\section{问题}
+% Manuscript: Section 1, Theorem 1
+\begin{frame}{同一个答案}
+对每个正整数 $n$：
+\begin{itemize}
+\item 积分 $T_{n+1}$，取最简带符号分子；
+\item 对每个满足 $n\mid k^n$ 的 $k\in\{1,\ldots,n\}$ 翻转一次符号。
+\end{itemize}
+\begin{block}{答案}
+$4\mid n$ 时均为 $+1$，其余时候均为 $-1$。
+\end{block}
+\note{这是完整结论的普通语言版本。分母约定为正，保留分子的正负号。稍后给出两个等式的精确形式。}
+\end{frame}
+% Manuscript: Section 1, defining recurrence; Proposition 2
+\begin{frame}{手算 $n=4$}
+\[
+T_0=1,\quad T_1=x,\qquad T_{m+1}=2xT_m-T_{m-1}\ (m\ge1).
+\]
+\[
+T_5=16x^5-20x^3+5x,\qquad I_5=\frac16.
+\]
+\begin{itemize}
+\item 分子为 $+1$。
+\item $4\mid k^4$ 的成功者为 $2,4$。
+\item 两个负因子：$(-1)^2=+1$。
+\end{itemize}
+\note{积分为 $16/6-20/4+5/2=1/6$。提醒听众次数是 $n+1$。一个例子不是证明；下面解释为什么总成立。}
+\end{frame}
+\section{计数}
+% Manuscript: Proposition 3, proof, indicator identity
+\begin{frame}{取整是整除开关}
+对整数 $t$、正整数 $n$，令
+\[
+\delta_n(t)=\left\lfloor\frac tn\right\rfloor-\left\lfloor\frac{t-1}{n}\right\rfloor.
+\]
+\[
+\delta_n(t)=\begin{cases}1,&n\mid t,\\0,&n\nmid t.\end{cases}
+\]
+写 $t=qn+u$，$0\le u<n$：
+\begin{itemize}
+\item $u=0$：两个取整为 $q,q-1$；
+\item $u>0$：两个取整都为 $q$。
+\end{itemize}
+\note{所有除法都是有理数除法。第二个分子先减 $1$。欧几里得除法也适用于负的 $t$；零处的两个取整是 $0,-1$。}
+\end{frame}
+% Manuscript: Section 3; proof of Theorem 1
+\begin{frame}{从根基到负因子数量}
+$\operatorname{rad}(n)$ 是不同质因子的乘积，$\operatorname{rad}(1)=1$。
+\[
+n\mid k^n\quad\Longleftrightarrow\quad\operatorname{rad}(n)\mid k.
+\]
+\[
+P_n(n;0)=(-1)^{n/\operatorname{rad}(n)}.
+\]
+\[
+P_r(n;s)=\prod_{k=s+1}^{s+n}(1-2\delta_n(k^r)).
+\]
+例如 $12=2^2\cdot3$：根基为 $6$，成功者为 $6,12$。
+\note{若 $p^e\mid n$，则 $e\le n$；$k$ 中一个 $p$ 在 $k^n$ 中就提供足够个。缺少这个质数则永远不能整除。负因子恰为根基的倍数。}
+\end{frame}
+% Manuscript: Theorem 1, public two-equality assertion
+\begin{frame}{Browne 的恒等式}
+$a(m)$ 是 $I_m=\int_0^1T_m(x)\,dx$ 的最简带符号分子。
+\begin{bookresult}{thm-browne}
+对所有正整数 $n$，
+\[
+\begin{aligned}
+a(n+1)&=P_n(n;0),\\
+P_n(n;0)&=(-1)^{n/\operatorname{rad}(n)}.
+\end{aligned}
+\]
+\end{bookresult}
+\note{该框中的两个等式恰是现有公开形式陈述。积分在 Lean 中以有理系数有限和表示，由逐项积分与此定义一致。$n=1$ 时乘积为 $-1$，$I_2=-1/3$。}
+\end{frame}
+\section{积分}
+% Manuscript: Proposition 2 and proof
+\begin{frame}{积分如何产生四步周期}
+\[
+T_m(\cos\theta)=\cos(m\theta),\qquad
+I_m=\int_0^{\pi/2}\cos(m\theta)\sin\theta\,d\theta.
+\]
+对 $m\ge2$，积化和差给出
+\[
+\begin{aligned}
+I_m={}&\frac{1-\cos((m+1)\pi/2)}{2(m+1)}\\
+&-\frac{1-\cos((m-1)\pi/2)}{2(m-1)}.
+\end{aligned}
+\]
+端点余弦按 $1,0,-1,0$ 循环。
+\note{代入 $x=\cos\theta$ 时上下限反转，抵消 $dx$ 的负号。$m=1$ 不能代入此中间式，因为 $m-1=0$；必须直接积分。}
+\end{frame}
+% Manuscript: Proposition 2
+\begin{frame}{完整有理数公式}
+\small
+\begin{bookresult}{prop-integrals}
+$I_0=1$, $I_1=1/2$；对 $m\ge2$，
+\[
+I_m=\begin{cases}-1/(m^2-1),&m\text{ 为偶数},\\1/(m+1),&m\equiv1\pmod4,\\-1/(m-1),&m\equiv3\pmod4.\end{cases}
+\]
+$a(0)=1$；对 $m\ge1$，$a(m)=1$ 当且仅当 $m\equiv1\pmod4$，其余为 $-1$。
+$d(0)=1$；其余正分母依次为 $m^2-1,m+1,m-1$，奇数分支包含 $m=1$。
+\end{bookresult}
+\note{分子为 $\pm1$，分母为正，故分数已约分。由此 $a(n+1)=1$ 当且仅当 $4\mid n$。已有正指标行和证明可复用；完整初始值和分母的接口是共享任务。}
+\end{frame}
+\section{推广}
+% Manuscript: Proposition 3 and discussion n=16
+\begin{frame}{数量不同，奇偶相同}
+\[
+n=16=2^4,\qquad D_r(16)=2^{\lceil4/r\rceil}.
+\]
+\begin{center}
+\begin{tabular}{c|c|c|c}
+$r$&$D_r(16)$&$C_r(16)$&$P_r(16;0)$\\\hline
+$2$&$4$&$4$&$+1$\\
+$4$&$2$&$8$&$+1$
+\end{tabular}
+\end{center}
+$C_r$ 数成功者，$P_r$ 只记录其奇偶性。
+\note{平方时成功者为 $4,8,12,16$；四次方时所有偶数都成功。不能从相同乘积推断相同计数。}
+\end{frame}
+% Manuscript: Proposition 3, complete statement
+\begin{frame}{任意指数与任意整数平移}
+\small
+\begin{bookresult}{prop-roots}
+$n,r\ge1$，$n=\prod_{p\mid n}p^{e_p}$，令
+\[
+D_r(n)=\prod_{p\mid n}p^{\lceil e_p/r\rceil},\qquad C_r(n)=n/D_r(n).
+\]
+空乘积为 $1$。对每个整数 $s$，
+\[
+\begin{aligned}
+\sum_{k=s+1}^{s+n}\delta_n(k^r)&=C_r(n),\\
+P_r(n;s)&=(-1)^{C_r(n)}.
+\end{aligned}
+\]
+$n>1$ 时，$C_r(n)=n/\operatorname{rad}(n)$ 当且仅当 $r\ge\max_{p\mid n}e_p$；$n=1$ 时对所有 $r\ge1$ 成立。对所有 $r\ge2$，$P_r(n;s)=a(n+1)$。
+\end{bookresult}
+\note{两个公式分别是计数和乘积。最大质数指数控制计数饱和，而 $r\ge2$ 已足以控制符号。负数和零是区间陈述的一部分。}
+\end{frame}
+% Manuscript: Proposition 3, proof
+\begin{frame}{证明的两个关键步骤}
+\[
+n\mid k^r\ \Longleftrightarrow\ D_r(n)\mid k.
+\]
+$D_r(n)\mid n$，每个长为 $n$ 的整数区间含 $n/D_r(n)$ 个倍数。
+\[
+v_2(C_r(n))=t-\lceil t/r\rceil\quad(t=v_2(n)\ge1).
+\]
+$r\ge2$ 时：$t=1$ 给零，$t\ge2$ 给正数。
+\begin{alertblock}{边界}
+$r=1$ 时乘积总为 $-1$；$n=4$ 说明不能删去限制。
+\end{alertblock}
+\note{非零 $k$ 的每个质数指数满足 $r v_p(k)\ge e_p$，零则直接检查。若 $n$ 为奇数，计数为奇数。对 $t\ge2$，$\lceil t/r\rceil\le\lceil t/2\rceil\le t-1$。}
+\end{frame}
+\section{来源}
+% Manuscript: Section 4, coefficient corrections
+\begin{frame}{两处系数订正}
+若 $b_{m,j}$ 是零常数原函数的系数，则
+\[
+b_{m,j}=c_{m,j-1}/j\qquad(1\le j\le m+1).
+\]
+\begin{itemize}
+\item A164658 的列乘数应为 $j/2^{j-1}$。
+\item $T_7=64x^7-112x^5+56x^3-7x$，故 $b_{7,6}=-56/3$，不是 $56/3$。
+\end{itemize}
+A164662、A164663 的分别求和问题不在新闭式范围内。
+\note{原表显示列 $m=5$ 对应这里的 $b_{7,6}$。列乘数的原印值是 $j/2^{j-2}$，会多一倍。不能将分子分别求和与先加有理数再取分子混淆。}
+\end{frame}
+% Manuscript: Sections 1, 3 and bibliography
+\begin{frame}{来源与贡献}
+\small
+\begin{itemize}
+\item W. Lang：2009 年引入数列；A. Browne：2016 年提出公式。
+\item 原始恒等式已有较早的完整 Lean 证明。
+\item 本文：自包含说明、任意指数与平移推广、系数订正。
+\item S. Finch，\emph{Idempotents and Nilpotents Modulo n}，\href{https://arxiv.org/abs/math/0605019v2}{第 2 节}；NIST DLMF \href{https://dlmf.nist.gov/18.5.E1}{18.5.1}。
+\item 平方、立方、四次方计数见 A000188--A000190；S. Fried (2025)，定理 1，已证明相关 Yanev 恒等式。
+\end{itemize}
+\href{https://doi.org/10.5281/zenodo.23884883}{Haobo Ma 与 Wenlin Zhang，版本 1，CC BY 4.0}。
+\note{明确区分原问题、较早形式证明和本文书面推广。文献作者的首字母沿用原文已核实写法。}
+\end{frame}
+% Manuscript: Section 5, formal scope; Propositions 2–3
+\begin{frame}{可复用的下一步}
+\begin{itemize}
+\item 原始两个等式：已有公开 Lean 陈述。
+\item \href{https://github.com/the-omega-institute/trureturing-requests/issues/234}{完整初始值与分母}：复用现有行和求值。
+\item \href{https://github.com/the-omega-institute/trureturing-requests/issues/235}{任意幂与平移计数}：推广整除构造。
+\end{itemize}
+数学上的共同机制：整除开关 $\longrightarrow$ 计数 $\longrightarrow$ 奇偶性。
+\note{两项都有书面证明。计数推广独立于积分求值；只有最后认出分子时才使用积分的符号。有限计算不替代全指标证明。}
+\end{frame}
+\appendix
+% Manuscript: Section 5, formal and written evidence
+\FormalVerification
+\end{document}
