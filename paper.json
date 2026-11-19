@@ -2,16 +2,16 @@
   "files": {
     "pdf": {
       "bytes": 80049,
-      "matches_public": null,
+      "matches_public": true,
       "path": "paper.pdf",
-      "public_sha256": null,
+      "public_sha256": "cb6925ab5fbb293057703a6f10abb8171b5fcfcfea3c13baa75fc6ff15ab454f",
       "sha256": "cb6925ab5fbb293057703a6f10abb8171b5fcfcfea3c13baa75fc6ff15ab454f"
     },
     "source": {
       "bytes": 12455,
-      "matches_public": null,
+      "matches_public": true,
       "path": "source.archive",
-      "public_sha256": null,
+      "public_sha256": "b330f3067e11838d06d009d798130be5e471e606927578ba408ea77e0c20070d",
       "sha256": "b330f3067e11838d06d009d798130be5e471e606927578ba408ea77e0c20070d"
     }
   },
@@ -38,6 +38,8 @@
     "license": "CC-BY-4.0",
     "msc": [],
     "pdf": {
+      "bytes": 80049,
+      "sha256": "cb6925ab5fbb293057703a6f10abb8171b5fcfcfea3c13baa75fc6ff15ab454f",
       "url": "/api/v1/collected-papers/b164660-chebfloor/files/pdf?version=1"
     },
     "previous_version": null,
@@ -46,6 +48,8 @@
     "record": "b164660-chebfloor",
     "repository_name": "10.5281-zenodo.23884882",
     "source": {
+      "bytes": 12455,
+      "sha256": "b330f3067e11838d06d009d798130be5e471e606927578ba408ea77e0c20070d",
       "url": "/api/v1/collected-papers/b164660-chebfloor/files/source?version=1"
     },
     "title": "OEIS A164660, final FORMULA (29 May 2016): Chebyshev numerators and floor products",
