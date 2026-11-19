@@ -9,8 +9,10 @@
 
 请在对应共享问题中协调工作范围，在自己的贡献者分支或 fork 中实现，遵循[上游贡献规则](https://github.com/the-omega-institute/trureturing/blob/dev/docs/CONTRIBUTING.md)，将聚焦的 PR 直接提交到上游 `dev`。保留原始问题提出者、论文作者与形式化贡献者各自的署名。Mathesis fork 不是必须经过的合入步骤；PR 合入与平台独立验证记录也各有其职责。
 
-<style>pre:has(> code[class*="typst"]) { display: none; }</style>
+<section hidden="hidden">
 
 ```{=typst}
 #pagebreak()
 ```
+
+</section>
