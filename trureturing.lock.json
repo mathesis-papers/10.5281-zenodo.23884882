@@ -2,14 +2,14 @@
   "schema": "trureturing-books.lock.v1",
   "repo": "the-omega-institute/trureturing",
   "branch": "dev",
-  "commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
-  "pinned_at": "2026-11-08T12:32:04Z",
+  "commit": "b05ceb497bd134559c3c0f84d925c1643f7c65cb",
+  "pinned_at": "2026-11-24T06:48:35Z",
   "declarations": {
     "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct.result": {
       "module": "D5/S3/ArithSums/BrowneA164660ChebyshevFloorProduct",
       "name": "D5.S3.ArithSums.BrowneA164660ChebyshevFloorProduct.result",
       "kind": "theorem",
-      "statement_id": "sha256:96dad3953e0cc9d94fdaac62d43ed3c12156e3ff620efb61984362d30796d764",
+      "statement_id": "sha256:d0df33e1ced2d0958091b24b2bfd93c58666151ab42912181a7535c7e9ca41fc",
       "line": 286,
       "signature": "theorem result : claim"
     }
